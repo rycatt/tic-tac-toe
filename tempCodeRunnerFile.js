@@ -1,1 +1,1 @@
-    return board;
+board
