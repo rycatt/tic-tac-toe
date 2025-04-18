@@ -33,6 +33,7 @@ function gameboard() {
         return true;
       }
     }
+    return false;
   }
 
   const placeMarker = (index,player) => {
@@ -43,10 +44,8 @@ function gameboard() {
     return false;
   }
 
-  const checkForDraw = () => {
-    if(board.every((cell) => cell !== '' ) && !checkForWinner){
-      console.log('Draw!');
-    }
+  const checkForDraw = (player) => {
+    return board.every((cell) => cell !== '' ) && !checkForWinner(player);
   }
 
   return {
@@ -66,20 +65,21 @@ function gameController(){
   const player2 = board.createPlayer('Ryan','O');  
 
   const playRound = (index) => {
-    /**
-     * Handles a player's move when a cell is clicked.
-     * - Checks if the selected cell is empty (successful placement)
-     * - Updates the board with the current player's symbol
-     * - Checks for a winner or a draw
-     * - Switches to the next player
-     */
     const successfulPlacement = board.placeMarker(index,currentPlayer);
 
     if(!successfulPlacement){
       console.log('Invalid Placement');
-    } else {
-      if(!board.checkForWinner(currentPlayer))
-      switchTurn();
+    } else{
+      const isWin = board.checkForWinner(currentPlayer);
+      const isDraw = board.checkForDraw(currentPlayer);
+
+      if(!isWin) {
+        switchTurn();
+      }
+
+      if(isDraw){
+        console.log('Draw!');
+      }
     }
   }
 
@@ -94,21 +94,21 @@ function gameController(){
 
   board.displayBoard();
 
-  playRound(0)
-
-  board.checkForWinner(currentPlayer);
-  board.checkForDraw();
-
+  playRound(0);
+  playRound(1);
   playRound(2);
   playRound(3);
-  playRound(5);
+  playRound(4);
+  playRound(6);
   playRound(7);
   playRound(8);
+  playRound(5);
 
   console.log(board.getBoard());
 
   return {
     switchTurn,
+    playRound,
   }
 }
 
