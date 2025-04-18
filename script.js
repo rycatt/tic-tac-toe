@@ -29,7 +29,8 @@ function gameboard() {
     for(const pattern of winPatterns){
       [pos1,pos2,pos3] = pattern;
       if([pos1,pos2,pos3].every(index => board[index] === marker)){
-        console.log('YOU WON');
+        console.log(`${player.userName} WON!`);
+        return true;
       }
     }
   }
@@ -43,11 +44,9 @@ function gameboard() {
   }
 
   const checkForDraw = () => {
-    /**
-     * Checks if the game is a draw.
-     * - Returns true if all cells are filled and no winner is found
-     * - Uses array.every to ensure no cell is empty ("")
-     */
+    if(board.every((cell) => cell !== '' ) && !checkForWinner){
+      console.log('Draw!');
+    }
   }
 
   return {
@@ -74,10 +73,19 @@ function gameController(){
      * - Checks for a winner or a draw
      * - Switches to the next player
      */
+    const successfulPlacement = board.placeMarker(index,currentPlayer);
+
+    if(!successfulPlacement){
+      console.log('Invalid Placement');
+    } else {
+      if(!board.checkForWinner(currentPlayer))
+      switchTurn();
+    }
   }
 
+  let currentPlayer = player1;
   const switchTurn = () => {
-
+    currentPlayer = (currentPlayer === player1) ? player2 : player1;
   }
 
   const restartGame = () => {
@@ -86,12 +94,22 @@ function gameController(){
 
   board.displayBoard();
 
-  board.placeMarker(0,player1);
-  board.placeMarker(1,player1);
-  board.placeMarker(2,player1);
+  playRound(0)
 
-  console.log(board.checkForWinner(player1));
+  board.checkForWinner(currentPlayer);
+  board.checkForDraw();
+
+  playRound(2);
+  playRound(3);
+  playRound(5);
+  playRound(7);
+  playRound(8);
+
   console.log(board.getBoard());
+
+  return {
+    switchTurn,
+  }
 }
 
 gameController();
