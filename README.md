@@ -1,6 +1,6 @@
 # Tic-Tac-Toe
 
-A simple browser-based Tic-Tac-Toe game built with HTML, CSS, and JavaScript as part of [The Odin Project](https://www.theodinproject.com/) curriculum.
+A simple browser-based Tic-Tac-Toe game built with HTML, CSS, and JavaScript as part of [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe) curriculum.
 
 🔗 **Live Preview:** [Play Here](https://w1ntrr.github.io/tic-tac-toe/)
 
@@ -9,7 +9,7 @@ A simple browser-based Tic-Tac-Toe game built with HTML, CSS, and JavaScript as 
 
 ## 🛠️ Installation
 
-> **Note:** The game is also available to play live on [GitHub Pages](https://github.com/W1ntrr/tic-tac-toe.git).
+> **Note:** The game is also available to play live on [GitHub Pages](https://w1ntrr.github.io/tic-tac-toe/).
 
 1. Clone the repository:
     ```bash
@@ -52,7 +52,7 @@ A simple browser-based Tic-Tac-Toe game built with HTML, CSS, and JavaScript as 
 
 ## 📜 License
 
-- [MIT License](https://opensource.org/licenses/MIT)
+- [MIT License](https://github.com/W1ntrr/tic-tac-toe/blob/main/LICENSE)
 - Copyright © 2025 - **[@W1ntrr](https://github.com/W1ntrr)**
 
 <br>
