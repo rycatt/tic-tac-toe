@@ -85,7 +85,8 @@ svg > circle{
   background-color: var(--clr-light-hover);
 }
 
-.player-x-marker{
+.player-x-marker,
+.current-marker{
   color:var(--clr-x);
 }
 

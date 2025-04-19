@@ -35,6 +35,7 @@ function gameboard() {
       if([pos1,pos2,pos3].every(index => board[index] === marker)){
         resultMsg.textContent = `${currentPlayer.userName} Won`;
         resultMsg.classList.add('show');
+        game.incrementScore(currentPlayer);
         gameOver = true;
       }
     }
@@ -56,7 +57,7 @@ function gameboard() {
     return false;
   }
 
-  const checkForDraw = (currentPlayer) => {
+  const checkForDraw = () => {
     return board.every((cell) => cell !== '' ) && !gameOver;
   }
 
@@ -85,16 +86,16 @@ function gameController(){
       console.log('Invalid Placement');
     } else{
       board.checkForWinner(currentPlayer);
-      const isDraw = board.checkForDraw(currentPlayer);
+      const isDraw = board.checkForDraw();
 
       if(!gameOver) {
         switchTurn();
       }
 
       if(isDraw){
-        gameOver = true;
+        console.log('Draw');
+        resultMsg.classList.add('show');
         resultMsg.textContent = 'Draw!';
-        resultMsg.classList.add = 'show';
       }
     }
   }
@@ -103,6 +104,19 @@ function gameController(){
   const switchTurn = () => {
     currentPlayer = (currentPlayer === player1) ? player2 : player1;
     currentMarker.textContent = currentPlayer.choice;
+
+    if(currentPlayer.choice === 'X'){
+      currentMarker.classList.add('player-x-marker');
+      currentMarker.classList.remove('player-o-marker');
+    } else if (currentPlayer.choice === 'O'){
+      currentMarker.classList.add('player-o-marker');
+      currentMarker.classList.remove('player-x-marker');
+    }
+  }
+
+  const incrementScore = (currentPlayer) => {
+    const playerScore = document.getElementById(`${(currentPlayer.choice).toLowerCase()}-score`);
+    playerScore.textContent = parseInt(playerScore.textContent) + 1;
   }
 
   const restartGame = () => {
@@ -117,6 +131,9 @@ function gameController(){
     });
     currentPlayer = player1;
     currentMarker.textContent = 'X';
+
+    currentMarker.classList.remove('player-x-marker');
+    currentMarker.classList.remove('player-o-marker');
     resultMsg.classList.remove('show');
 
     gameOver = false;
@@ -133,6 +150,7 @@ function gameController(){
     switchTurn,
     playRound,
     restartGame,
+    incrementScore,
   }
 }
 
