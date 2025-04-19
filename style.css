@@ -28,12 +28,12 @@ body{
 
 .header{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 30px 40px;
 }
 
 .title{
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 600;
   text-decoration: line-through;
 }
@@ -95,7 +95,7 @@ svg > circle{
 }
 
 .result-message{
-  margin: 2rem 0; 
+  margin: 1rem 0; 
   font-size: 1.2em;
   visibility: hidden;
 }
@@ -107,8 +107,9 @@ svg > circle{
 .scoreboard{
   display: flex;
   justify-content: space-evenly;
-  width: 20rem;
-  margin-bottom: 2rem;
+  width: 23em;
+  margin-bottom: 2.3em;
+  font-size: 1.2rem;
 }
 
 .scoreboard > .player-score{
@@ -127,10 +128,12 @@ svg > circle{
 
 .controls{
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .reset{
   border:none;
+  font-size: 1rem;
   background-color: var(--clr-rose);
   color:white;
   padding:0.5em 1em;

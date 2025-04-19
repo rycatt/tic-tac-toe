@@ -16,6 +16,18 @@ function gameboard() {
     }
   }
 
+  const showWinningPatterns = (winningPattern, color='#a9dc76') => {
+    const cells = document.querySelectorAll('.cell');
+    
+    cells.forEach((cell) => {
+      const cellId = Number(cell.dataset.cell);
+      if(winningPattern.includes(cellId)){
+        cell.style.backgroundColor = color;
+        cell.style.borderColor = color;
+      }
+    })
+  }
+
   const getBoard = () => board;
 
   const createPlayer = (userName, choice) => {
@@ -35,6 +47,7 @@ function gameboard() {
       if([pos1,pos2,pos3].every(index => board[index] === marker)){
         resultMsg.textContent = `${currentPlayer.userName} Won`;
         resultMsg.classList.add('show');
+        showWinningPatterns(pattern);
         game.incrementScore(currentPlayer);
         gameOver = true;
       }
@@ -44,7 +57,6 @@ function gameboard() {
   const placeMarker = (index,currentPlayer) => {
     if(board[index] === '' && !gameOver) {
       board[index] = currentPlayer.choice;
-      console.log(getBoard());
       
       const cell = document.querySelector(`[data-cell="${index}"]`)
       if(cell){
@@ -69,6 +81,7 @@ function gameboard() {
     checkForWinner,
     placeMarker,
     checkForDraw,
+    showWinningPatterns,
   };
 }
 
@@ -93,7 +106,8 @@ function gameController(){
       }
 
       if(isDraw){
-        console.log('Draw');
+        board.showWinningPatterns([0,1,2,3,4,5,6,7,8],'rgba(109, 109, 109, 0.285)');
+
         resultMsg.classList.add('show');
         resultMsg.textContent = 'Draw!';
       }
@@ -128,6 +142,8 @@ function gameController(){
     cells.forEach((cell) => {
       cell.textContent = '';
       cell.classList.remove('player-x-marker','player-o-marker');
+      cell.style.backgroundColor = '';
+      cell.style.borderColor = '';
     });
     currentPlayer = player1;
     currentMarker.textContent = 'X';
