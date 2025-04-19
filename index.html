@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
   <title>Tic Tac Toe</title>
 </head>
 <body>
-  
+  <section class="container">
+    <div class="header">
+      <div class="icons">
+        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>    
+        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8"></circle>
+        </svg>            
+      </div>
+      <div class="title">Tic Tac Toe</div>
+    </div>
+    <div class="game-wrapper">
+      <div class="turn-indicator">Player <span class="marker">X</span>'s turn</div>
+      <div class="game-board">
+      </div>
+      <div class="game-result">
+        <p class="result-message">Player <span class="marker">X</span> Won</p>
+        <div class="controls">
+          <button class="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
 </body>
 </html>

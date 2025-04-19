@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+:root{
+  --clr-bg-primary: #13181c;
+  --clr-light-hover: rgba(255, 255, 255, 0.048);
+  --clr-rose: #ff2056;
+  --clr-x: #ff6188;
+  --clr-o: #4677cd;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 500;
+}
+
+body{
+  background-color: var(--clr-bg-primary);
+  color:white;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 40px;
+}
+
+.title{
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
+svg > line {
+  color: var(--clr-x);
+}
+svg > circle{
+  color:var(--clr-o);
+}
+
+.game-wrapper{
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.turn-indicator{
+  border: 2px solid white;
+  padding: 0.2rem 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.5em;
+  box-shadow: 0 2px 5px rgba(94, 94, 94, 0.684);
+}
+
+.game-board{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.cell{
+  border: 1px white solid;
+  border-radius: 0.3rem;
+  min-width: 100px;
+  min-height: 100px;
+  cursor: pointer;
+  transition: all ease 0.15s;
+}
+
+.cell:hover{
+  transform: scale(1.05);
+  background-color: var(--clr-light-hover);
+}
+
+.result-message{
+  margin: 2rem 0; 
+  font-size: 1.2em;
+}
+
+.controls{
+  text-align: center;
+}
+
+.reset{
+  border:none;
+  background-color: var(--clr-rose);
+  color:white;
+  padding:0.5em 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.348);
+  transition: all ease 0.15s;
+}
+
+.reset:hover{
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(58, 58, 58, 0.485);
+}
+
+.reset:active{
+  transform: scale(0.95);
+  background-color: #ff205899;
+  
+}

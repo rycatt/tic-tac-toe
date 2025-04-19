@@ -1,9 +1,13 @@
 function gameboard() {
   const board = [];
+  const boardContainer = document.querySelector('.game-board');
 
   const displayBoard = () => {
     for(let i = 0;i<9;i++){
-      board[i] = '';
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.dataset.cell = i;
+      boardContainer.appendChild(cell);
     }
   }
 
@@ -24,28 +28,28 @@ function gameboard() {
     [2,4,6],
   ];
 
-  const checkForWinner = (player) => {
-    const marker = player.choice;
+  const checkForWinner = (currentPlayer) => {
+    const marker = currentPlayer.choice;
     for(const pattern of winPatterns){
       [pos1,pos2,pos3] = pattern;
       if([pos1,pos2,pos3].every(index => board[index] === marker)){
-        console.log(`${player.userName} WON!`);
+        console.log(`${currentPlayer.userName} WON!`);
         return true;
       }
     }
     return false;
   }
 
-  const placeMarker = (index,player) => {
+  const placeMarker = (index,currentPlayer) => {
     if(board[index] === '') {
-      board[index] = player.choice;
+      board[index] = currentPlayer.choice;
       return true;
     }
     return false;
   }
 
-  const checkForDraw = (player) => {
-    return board.every((cell) => cell !== '' ) && !checkForWinner(player);
+  const checkForDraw = (currentPlayer) => {
+    return board.every((cell) => cell !== '' ) && !checkForWinner(currentPlayer);
   }
 
   return {
@@ -61,8 +65,10 @@ function gameboard() {
 
 function gameController(){
   const board = gameboard();
-  const player1 = board.createPlayer('John', 'X');
-  const player2 = board.createPlayer('Ryan','O');  
+  board.displayBoard();
+
+  const player1 = board.createPlayer('Player X', 'X');
+  const player2 = board.createPlayer('Player O','O');  
 
   const playRound = (index) => {
     const successfulPlacement = board.placeMarker(index,currentPlayer);
@@ -88,23 +94,9 @@ function gameController(){
     currentPlayer = (currentPlayer === player1) ? player2 : player1;
   }
 
-  const restartGame = () => {
-    
-  }
-
-  board.displayBoard();
-
-  playRound(0);
-  playRound(1);
-  playRound(2);
-  playRound(3);
-  playRound(4);
-  playRound(6);
-  playRound(7);
-  playRound(8);
-  playRound(5);
-
-  console.log(board.getBoard());
+  // const restartGame = () => {
+  //   board.displayBoard();
+  // }
 
   return {
     switchTurn,
