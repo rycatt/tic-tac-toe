@@ -55,6 +55,7 @@ svg > circle{
 
 .turn-indicator{
   border: 2px solid white;
+  border-radius: 0.75rem;
   padding: 0.2rem 1rem;
   margin-bottom: 2rem;
   font-size: 1.5em;
@@ -73,6 +74,10 @@ svg > circle{
   min-height: 100px;
   cursor: pointer;
   transition: all ease 0.15s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
 }
 
 .cell:hover{
@@ -80,9 +85,43 @@ svg > circle{
   background-color: var(--clr-light-hover);
 }
 
+.player-x-marker{
+  color:var(--clr-x);
+}
+
+.player-o-marker{
+  color:var(--clr-o);
+}
+
 .result-message{
   margin: 2rem 0; 
   font-size: 1.2em;
+  visibility: hidden;
+}
+
+.show{
+  visibility: visible;
+}
+
+.scoreboard{
+  display: flex;
+  justify-content: space-evenly;
+  width: 20rem;
+  margin-bottom: 2rem;
+}
+
+.scoreboard > .player-score{
+  padding: 0.2rem 1rem;
+  margin-inline: 1rem;
+  border-radius: 0.5rem;
+}
+
+#player-x{
+  border:3px solid var(--clr-x);
+}
+
+#player-o{
+  border:3px solid var(--clr-o);
 }
 
 .controls{
