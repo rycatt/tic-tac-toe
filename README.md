@@ -2,18 +2,18 @@
 
 A simple browser-based Tic-Tac-Toe game built with HTML, CSS, and JavaScript as part of [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe) curriculum.
 
-🔗 **Live Preview:** [Play Here](https://w1ntrr.github.io/tic-tac-toe/)
+🔗 **Live Preview:** [Play Here](https://rycatt.github.io/tic-tac-toe/)
 
 ## 📸 Screenshot
-![Game Screenshot](https://github.com/W1ntrr/tic-tac-toe/blob/7bf2d7b2f6abe98068fb1f7e2c0ed665ac6ecac6/Screenshot.png)
+![Game Screenshot](https://github.com/rycatt/tic-tac-toe/blob/7bf2d7b2f6abe98068fb1f7e2c0ed665ac6ecac6/Screenshot.png)
 
 ## 🛠️ Installation
 
-> **Note:** The game is also available to play live on [GitHub Pages](https://w1ntrr.github.io/tic-tac-toe/).
+> **Note:** The game is also available to play live on [GitHub Pages](https://rycatt.github.io/tic-tac-toe/).
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/W1ntrr/tic-tac-toe.git
+    git clone https://github.com/rycatt/tic-tac-toe.git
     ```
 2. Navigate to the project folder:
     ```bash
@@ -52,12 +52,12 @@ A simple browser-based Tic-Tac-Toe game built with HTML, CSS, and JavaScript as 
 
 ## 📜 License
 
-- [MIT License](https://github.com/W1ntrr/tic-tac-toe/blob/main/LICENSE)
-- Copyright © 2025 - **[@W1ntrr](https://github.com/W1ntrr)**
+- [MIT License](https://github.com/rycatt/tic-tac-toe/blob/main/LICENSE)
+- Copyright © 2025 - **[@rycatt](https://github.com/rycatt)**
 
 <br>
 
 ## ✍️ Author
 
-Created by **[@W1ntrr](https://github.com/W1ntrr)**  
+Created by **[@rycatt](https://github.com/rycatt)**  
 Built with guidance from The Odin Project 🙌
